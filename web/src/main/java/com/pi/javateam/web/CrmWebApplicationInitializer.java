@@ -2,12 +2,16 @@ package com.pi.javateam.web;
 
 import com.pi.javateam.services.ServiceConfiguration;
 import org.springframework.context.annotation.*;
+import org.springframework.data.repository.support.DomainClassConverter;
+import org.springframework.format.support.FormattingConversionService;
 import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.*;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.servlet.*;
 import java.io.File;
@@ -36,7 +40,7 @@ public class CrmWebApplicationInitializer extends AbstractAnnotationConfigDispat
 
 	@Override
 	protected String[] getServletMappings() {
-		return new String[]{"/"};
+		return new String[]{"/api/*"};
 	}
 
 	@Override
@@ -59,9 +63,9 @@ public class CrmWebApplicationInitializer extends AbstractAnnotationConfigDispat
 @EnableHypermediaSupport
 class WebMvcConfiguration   {
 
-	@Bean
-	public MultipartResolver multipartResolver() {
-		return new StandardServletMultipartResolver();
-	}
+    @Bean
+    public MultipartResolver multipartResolver() {
+        return new StandardServletMultipartResolver();
+    }
 
 }
