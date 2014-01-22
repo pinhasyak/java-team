@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DefaultController {
     @RequestMapping(value = "/")
-    public String myDefaultPage(){
+    public String defaultPage(){
         return "EvenytDetails";
     }
 }
