@@ -5,6 +5,7 @@ public class ApiUrls {
 	// root
 	public static final String ROOT_URL_USERS = "/users";
 	public static final String URL_USERS_USER = "/{user}";
+    public static final String URL_USERS_ALL_USERS = "/all_users)";
 	public static final String URL_USERS_CREATE_USER = "/create_user";
 	public static final String URL_USERS_USER_PHOTO = ROOT_URL_USERS + URL_USERS_USER + "/photo";
 

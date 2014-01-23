@@ -4,7 +4,11 @@ import com.pi.javateam.services.CrmService;
 import com.pi.javateam.services.Customer;
 import com.pi.javateam.services.User;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.ExposesResourceFor;
+import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpEntity;
@@ -61,6 +65,12 @@ class UserController {
     HttpEntity<Resource<User>> deleteUser(@PathVariable Long user) {
         Resource<User> userResource = userResourceAssembler.toResource(crmService.removeUser(user));
         return new ResponseEntity<Resource<User>>(userResource, HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = ApiUrls.URL_USERS_ALL_USERS)
+    HttpEntity<PagedResources<Resource<User>>> loadAllUsers(@PathVariable Pageable pageable,@PathVariable PagedResourcesAssembler<User> assembler) {
+        Page<User> userPage = this.crmService.findAllUsers(pageable);
+        return new ResponseEntity(assembler.toResource(userPage), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = ApiUrls.URL_USERS_USER)
