@@ -1,10 +1,11 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * Thrown when the system fails to load a valid {@link User} profile photo image.
+ * Thrown when the system fails to load a valid {@link com.pi.javateam.domain.User} profile photo image.
  *
  * 
  */

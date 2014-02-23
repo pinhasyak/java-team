@@ -1,5 +1,6 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Team;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.logging.Log;
@@ -67,7 +68,7 @@ public class ServiceConfiguration {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(HibernateJpaVendorAdapter adapter, DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setPackagesToScan(User.class.getPackage().getName());
+        emf.setPackagesToScan(Team.class.getPackage().getName());
         emf.setDataSource(dataSource);
         emf.setJpaVendorAdapter(adapter);
         return emf;

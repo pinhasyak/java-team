@@ -1,10 +1,11 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Customer;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
- * Thrown when there is trouble persisting the {@link Customer customer}.
+ * Thrown when there is trouble persisting the {@link com.pi.javateam.domain.Customer customer}.
  *
  * 
  */

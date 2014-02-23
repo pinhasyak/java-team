@@ -1,5 +1,6 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Customer;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -9,7 +10,7 @@ import org.springframework.data.rest.repository.annotation.RestResource;
 import java.util.List;
 
 /**
- * Repository for dealing with {@link Customer customer } records.
+ * Repository for dealing with {@link com.pi.javateam.domain.Customer customer } records.
  *
  * 
  */

@@ -1,4 +1,4 @@
-package com.pi.javateam.services;
+package com.pi.javateam.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -14,7 +14,7 @@ import java.util.Set;
 
 /**
  * Simple object that administers all customer data. This user is the one on whose behalf modifications to {@link
- * Customer customer data} are made.
+ * com.pi.javateam.domain.Customer customer data} are made.
  *
  * 
  */

@@ -1,4 +1,4 @@
-package com.pi.javateam.services;
+package com.pi.javateam.domain;
 
 import com.fasterxml.jackson.annotation.*;
 import org.apache.commons.lang.builder.*;

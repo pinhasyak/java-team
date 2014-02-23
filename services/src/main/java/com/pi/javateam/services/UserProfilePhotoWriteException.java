@@ -1,5 +1,6 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

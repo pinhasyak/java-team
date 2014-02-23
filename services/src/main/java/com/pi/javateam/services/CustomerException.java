@@ -1,5 +1,7 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Customer;
+
 /**
  * 
  */

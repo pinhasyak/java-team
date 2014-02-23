@@ -1,4 +1,4 @@
-package com.pi.javateam.repository;
+package com.pi.javateam.services;
 
 import com.pi.javateam.domain.Project;
 import org.springframework.data.repository.PagingAndSortingRepository;

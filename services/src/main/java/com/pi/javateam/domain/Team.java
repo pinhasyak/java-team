@@ -1,10 +1,8 @@
 package com.pi.javateam.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,6 +23,16 @@ public class Team  extends AbstractEntity {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "team")
     private Set<Project> projects = new HashSet<>();
 
+    public Team(Long id, String teamName, String companyName, Set<Project> projects) {
+        this.id = id;
+        this.teamName = teamName;
+        this.companyName = companyName;
+        this.projects = projects;
+    }
+
+    public Team(Team team){
+        this(team.getId(), team.getTeamName(), team.getCompanyName(), new HashSet<Project>());
+    }
     public String getTeamName() {
         return teamName;
     }

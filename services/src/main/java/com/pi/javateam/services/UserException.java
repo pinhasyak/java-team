@@ -1,5 +1,7 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.User;
+
 public class UserException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

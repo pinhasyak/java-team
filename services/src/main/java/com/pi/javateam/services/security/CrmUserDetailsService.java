@@ -1,7 +1,7 @@
 package com.pi.javateam.services.security;
 
 import com.pi.javateam.services.CrmService;
-import com.pi.javateam.services.User;
+import com.pi.javateam.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,7 +30,7 @@ public class CrmUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        com.pi.javateam.services.User user = crmService.findUserByUsername(username);
+        User user = crmService.findUserByUsername(username);
         return new CrmUserDetails(user);
     }
 
@@ -42,7 +42,7 @@ public class CrmUserDetailsService implements UserDetailsService {
         public static final String ROLE_USER = "ROLE_USER";
         private Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
 
-        public CrmUserDetails(com.pi.javateam.services.User user) {
+        public CrmUserDetails(User user) {
             super(user);
             Assert.notNull(user, "the provided user reference can't be null");
             this.grantedAuthorities = AuthorityUtils.createAuthorityList(ROLE_USER, SCOPE_READ, SCOPE_WRITE);

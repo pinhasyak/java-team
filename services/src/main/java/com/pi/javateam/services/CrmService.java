@@ -1,5 +1,7 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Customer;
+import com.pi.javateam.domain.User;
 import org.springframework.http.MediaType;
 
 import java.util.Collection;
