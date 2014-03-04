@@ -1,6 +1,6 @@
 package com.pi.javateam.web;
 
-import com.pi.javateam.services.User;
+import com.pi.javateam.domain.User;
 import org.springframework.hateoas.*;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +28,7 @@ class UserResourceAssembler implements ResourceAssembler<User, Resource<User>> {
             User user = new User(u);
             user.setPassword(null);
 
-            long userId = user.getId();
+            long userId = user.getId()!=null?user.getId():1;
             Resource<User> userResource = new Resource<User>(user);
             Collection<Link> links = new ArrayList<Link>();
             links.add(linkTo(methodOn(UserController.class).loadUser(userId)).withSelfRel());

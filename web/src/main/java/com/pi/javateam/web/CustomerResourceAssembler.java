@@ -1,6 +1,6 @@
 package com.pi.javateam.web;
 
-import com.pi.javateam.services.*;
+import com.pi.javateam.domain.Customer;
 import org.springframework.hateoas.*;
 import org.springframework.stereotype.Component;
 

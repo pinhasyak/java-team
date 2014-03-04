@@ -1,5 +1,7 @@
 package com.pi.javateam.web;
 
+import com.pi.javateam.domain.User;
+import com.pi.javateam.exceptions.UserProfilePhotoReadException;
 import com.pi.javateam.services.*;
 
 import org.springframework.hateoas.*;
