@@ -1,11 +1,16 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Customer;
 import com.pi.javateam.domain.Project;
 import com.pi.javateam.domain.Team;
+import com.pi.javateam.repositories.ProjectRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,30 +19,27 @@ import java.util.Set;
 @Service
 @Transactional
 public class ProjectServiceImpl implements ProjectService {
+    @Inject
     ProjectRepository projectRepository;
 
-    @Inject
-    public ProjectServiceImpl(ProjectRepository projectRepository) {
-        this.projectRepository = projectRepository;
+    @Override
+    public Project findById(Long teamId) {
+        return projectRepository.findOne(teamId);
     }
 
     @Override
-    public Project findById(Long projectId) {
-        return projectRepository.findOne(projectId);
+    public Page<Project> findByTeamId(Long teamId, Pageable pageable) {
+        return projectRepository.findByTeamId(teamId, pageable);
     }
 
     @Override
-    public Team findTeamByProjectId(Long projectId) {
-        return null;
+    public List<Project> findByTeamId(Long teamId) {
+        return projectRepository.findByTeamId(teamId);
     }
 
     @Override
-    public Iterable<Project> findAll() {
-        return projectRepository.findAll();
+    public List<Project> searchByTeamIdAndName(Long teamId, String name) {
+        return projectRepository.search(teamId,name);
     }
 
-    @Override
-    public Set<Project> findByName() {
-        return null;
-    }
 }

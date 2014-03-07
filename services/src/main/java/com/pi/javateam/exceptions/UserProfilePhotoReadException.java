@@ -1,6 +1,7 @@
-package com.pi.javateam.services;
+package com.pi.javateam.exceptions;
 
 import com.pi.javateam.domain.User;
+import com.pi.javateam.exceptions.UserException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

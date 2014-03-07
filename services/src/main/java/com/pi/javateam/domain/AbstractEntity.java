@@ -1,9 +1,6 @@
 package com.pi.javateam.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 import org.springframework.hateoas.Identifiable;
 
@@ -15,7 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class AbstractEntity implements Identifiable<Long> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", unique = true, nullable = false)
     @JsonIgnore
     protected Long id;
 

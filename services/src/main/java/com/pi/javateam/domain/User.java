@@ -16,7 +16,7 @@ import java.util.Set;
  * Simple object that administers all customer data. This user is the one on whose behalf modifications to {@link
  * com.pi.javateam.domain.Customer customer data} are made.
  *
- * 
+ *
  */
 @JsonAutoDetect (fieldVisibility = JsonAutoDetect.Visibility.ANY, isGetterVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.ANY)
 @Entity

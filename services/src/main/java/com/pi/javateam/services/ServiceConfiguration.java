@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Driver;
 
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "com.pi.javateam.repositories")
 @EnableTransactionManagement
 @ComponentScan
 @PropertySource("/config.properties")

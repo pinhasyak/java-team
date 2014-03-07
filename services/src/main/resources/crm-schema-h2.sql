@@ -30,6 +30,34 @@ CREATE TABLE customer
   CONSTRAINT fk24217fdef32da70a FOREIGN KEY (customer_user_id_fkey) REFERENCES user_account (id) ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
+CREATE TABLE TEAM
+(
+  ID bigint NOT NULL,
+  TEAM_NAME varchar (255),
+  COMPANY_NAME varchar(255),
+  CONSTRAINT team_pkey PRIMARY KEY (id )
+);
+
+-- update the teams
+--
+CREATE TABLE PROJECT
+(
+  ID bigint NOT NULL,
+  PROJECT_NAME varchar(255),
+  DESCRIPTION varchar(255),
+  SIGNUP_DATE timestamp  ,
+  PROJECT_TEAM_ID_FKEY bigint NOT NULL,
+  CONSTRAINT PROJECT_PKEY PRIMARY KEY (id ),
+  CONSTRAINT fk24217fdef32da70b FOREIGN KEY (PROJECT_TEAM_ID_FKEY) REFERENCES TEAM (id) ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+INSERT INTO TEAM (id, TEAM_NAME, COMPANY_NAME) VALUES (1, 'java team', 'bank');
+INSERT INTO TEAM (id, TEAM_NAME, COMPANY_NAME) VALUES (2, '.net team', 'bank');
+
+INSERT INTO PROJECT (id, PROJECT_NAME, DESCRIPTION,SIGNUP_DATE,PROJECT_TEAM_ID_FKEY) VALUES (1, 'project1', 'project desc1','2013-06-02 15:33:51',1);
+INSERT INTO PROJECT (id, PROJECT_NAME, DESCRIPTION,SIGNUP_DATE,PROJECT_TEAM_ID_FKEY) VALUES (2, 'project1', 'project desc1','2013-06-02 15:33:51',1);
+
+
 INSERT INTO user_account (id, first_name, last_name, pass_word, signup_date, user_name, enabled, profile_photo_imported, profile_photo_media_type) VALUES (NEXTVAL('hibernate_sequence'), 'Clark', 'Kent', 'uberman', '2013-06-02 15:33:51', 'clarkkent', true, false, null);
 INSERT INTO user_account (id, first_name, last_name, pass_word, signup_date, user_name, enabled, profile_photo_imported, profile_photo_media_type) VALUES (NEXTVAL('hibernate_sequence'), 'Lois', 'Lane', 'thebetterhalf', '2013-06-02 15:33:51', 'loislane', true, false, null);
 INSERT INTO user_account (id, first_name, last_name, pass_word, signup_date, user_name, enabled, profile_photo_imported, profile_photo_media_type) VALUES (NEXTVAL('hibernate_sequence'), 'Bruce', 'Wayne', 'alfred', '2013-06-02 15:33:51', 'brucewayne', true, false, null);

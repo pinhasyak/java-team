@@ -1,5 +1,8 @@
 package com.pi.javateam.services;
 
+import com.pi.javateam.domain.Customer;
+import com.pi.javateam.domain.User;
+import com.pi.javateam.repositories.CustomerRepository;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,7 +17,7 @@ import java.util.Collection;
 @ContextConfiguration (classes = ServiceConfiguration.class)
 @Transactional
 @TransactionConfiguration
-public class TestCustomerService {
+public class CustomerServiceTest {
 
 
 

@@ -38,9 +38,6 @@ class UserController {
     private UserResourceAssembler userResourceAssembler;
     private CustomerResourceAssembler customerResourceAssembler;
 
-
-    public UserController() {}
-
     @Inject
     public UserController(CrmService crmService,
                           UserResourceAssembler userResourceAssembler,

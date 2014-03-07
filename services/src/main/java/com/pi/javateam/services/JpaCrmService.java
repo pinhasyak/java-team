@@ -3,6 +3,10 @@ package com.pi.javateam.services;
 
 import com.pi.javateam.domain.Customer;
 import com.pi.javateam.domain.User;
+import com.pi.javateam.exceptions.UserProfilePhotoReadException;
+import com.pi.javateam.exceptions.UserProfilePhotoWriteException;
+import com.pi.javateam.repositories.CustomerRepository;
+import com.pi.javateam.repositories.UserRepository;
 import org.apache.commons.io.IOUtils;
 import org.hibernate.Hibernate;
 import org.springframework.http.MediaType;
@@ -21,6 +25,7 @@ import java.util.*;
 @Service
 @Transactional
 public class JpaCrmService implements CrmService {
+
     private CustomerRepository customerRepository;
     private UserRepository userRepository;
 

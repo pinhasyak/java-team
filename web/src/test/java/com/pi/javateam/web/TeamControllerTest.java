@@ -18,6 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Arrays;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -41,6 +43,17 @@ public class TeamControllerTest {
         Mockito.reset(teamServiceMock);
         mockMvc = MockMvcBuilders.webAppContextSetup(this.webApplicationContext).build();
     }
+
+    @Test
+    public void loadAllTeams() throws Exception{
+        Team team1 = new Team(new Long(1),"javaTeam","bank",null);
+        Team team2 = new Team(new Long(2),".NetTeam","bank",null);
+        Mockito.when(this.teamServiceMock.findAll()).thenReturn(Arrays.asList(team1,team2));
+        this.mockMvc.perform(get("/teams"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(TestUtil.APPLICATION_JSON))
+                ;
+    }
     @Test
     public void loadTeam() throws Exception {
         Long id = new Long(1);
@@ -48,7 +61,7 @@ public class TeamControllerTest {
         Mockito.when(teamServiceMock.findById(id)).thenReturn(team);
         mockMvc.perform(get("/teams/"+id.longValue()))
                 .andExpect(status().isOk())
-//                .andExpect(content().contentType(TestUtil.APPLICATION_JSON))
+                .andExpect(content().contentType(TestUtil.APPLICATION_JSON))
 //                .andExpect(jsonPath("$.lastName", Matchers.is("yak")))
 //                .andExpect(jsonPath("$.firstName", Matchers.is("pi")))
 //                .andExpect(jsonPath("$.username", Matchers.is("username")))

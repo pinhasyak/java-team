@@ -1,4 +1,4 @@
-package com.pi.javateam.services;
+package com.pi.javateam.exceptions;
 
 import com.pi.javateam.domain.Customer;
 
