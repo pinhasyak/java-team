@@ -1,4 +1,4 @@
-package com.pi.javateam.services;
+package com.pi.javateam.repositories;
 
 import com.pi.javateam.domain.Customer;
 import org.springframework.data.domain.*;
