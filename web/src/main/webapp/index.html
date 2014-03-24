@@ -1,48 +1,66 @@
-<!DOCTYPE html>
-<html ng-app="sprang">
+<!doctype html>
+<html lang="en" ng-app="eventsApp">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/toastr.css"/>
-    <style>
-        body {
-            padding-top: 60px;
-        }
-    </style>
-    <title>Spring AngularJS</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Team</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">Spring AngularJS</a>
-
-            <div class="nav-collapse collapse">
-                <ul class="nav" role="navigation">
-                    <li>
-                        <a href="#/books">Books</a>
-                    </li>
+<div id="page">
+    <header class="container">
+        <div id="menu" class="navbar navbar-default navbar-fixed-top" ng-controller="MainMenuController">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <div id="logo">
+                    <a href='.'>
+                        <h4>My Team</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" ng-click="showAllTeams()">Teams</a></li>
+                    <li><a href="" ng-click="editTeam()">Create Team</a></li>
+                    <li><a href="" ng-click="showUser()">Show User</a></li>
                 </ul>
             </div>
-            <!--/.nav-collapse -->
         </div>
-    </div>
+
+    </header>
+    <section id="body" class="container">
+        <ng-view></ng-view>
+    </section>
+    <hr />
+    <footer class="container">
+        <p>My Team by <a href="https://www.facebook.com/pinhas.yakubov">Pinhas Yakubov</a>.</p>
+    </footer>
 </div>
 
-<div class="container" ng-view>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="lib/angular/angular-resource.js"></script>
 
-</div>
+<script src="lib/underscore-1.4.4.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/services/EventData.js"></script>
+<script src="js/services/UserData.js"></script>
+<script src="js/services/TeamData"></script>
+<script src="js/controllers/UserController.js"></script>
+<script src="js/controllers/EditEventController.js"></script>
+<script src="js/controllers/EventController.js"></script>
+<script src="js/controllers/EventListConroller.js"></script>
+<script src="js/controllers/MainMenuController.js"></script>
+<script src="js/controllers/SampleDirectiveController.js"></script>
+<script src="js/controllers/TeamDataController.js"></script>
+<script src="js/controllers/EditTeamController.js"></script>
+<script src="js/filters.js"></script>
+<script src="lib/bootstrap.min.js"></script>
 
-<script src="/lib/jquery.min.js"></script>
-<script src="/lib/bootstrap.min.js"></script>
-<script src="/lib/angular/angular.js"></script>
-<script src="/lib/angular/angular-resource.js"></script>
-<script src="/lib/toastr.js"></script>
-<script src="/js/app.js"></script>
 </body>
 </html>

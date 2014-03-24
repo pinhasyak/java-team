@@ -12,9 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -51,6 +49,11 @@ public class TeamController {
         }
         Resources<Resource<Team>> resources = new Resources<>(resourceCollection);
         return new ResponseEntity<Resources<Resource<Team>>>(resources,HttpStatus.OK);
+    }
+
+    @RequestMapping(method=RequestMethod.POST,value = ApiUrls.URL_USERS_TEAM)
+    public @ResponseBody void savePerson(@RequestBody Team team) {
+        teamService.save(team);
     }
 
     @RequestMapping(method = RequestMethod.GET,value = "/{team}/projects")
