@@ -5,4 +5,5 @@ package com.pi.javateam.web;
  */
 public class Dump {
     public static int Ku = 10;
+    public static String some = "kju";
 }
